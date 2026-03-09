@@ -1,20 +1,14 @@
 ---
-interface Props {
-  brand: string;
-  subtitle: string;
-  title: string;
-  description: string;
-  bookingUrl: string;
-  phoneHref: string;
-  primaryCta: string;
-  secondaryCta: string;
-}
+import type {SiteData} from '../data/site';
+
+type Props = Pick<SiteData, 'subtitle' | 'bookingUrl' | 'phoneHref'> &
+  SiteData['hero'];
 
 const {
-  brand,
   subtitle,
   title,
   description,
+  location,
   bookingUrl,
   phoneHref,
   primaryCta,
@@ -67,7 +61,7 @@ const {
         class="mt-12 inline-flex items-center gap-3 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm text-white/90 backdrop-blur-sm"
       >
         <span class="i-lucide-map-pin h-4 w-4"></span>
-        <span>Annecy et alentours, sur rendez-vous</span>
+        <span>{location}</span>
       </div>
     </div>
   </div>

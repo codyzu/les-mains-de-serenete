@@ -1,4 +1,30 @@
 // @unocss-include
+export type SiteData = {
+  brand: string;
+  subtitle: string;
+  phoneDisplay: string;
+  phoneHref: string;
+  email: string;
+  bookingUrl: string;
+  locationText: string;
+  hero: {
+    title: string;
+    description: string;
+    location: string;
+    primaryCta: string;
+    secondaryCta: string;
+  };
+  massages: Array<{
+    title: string;
+    description: string;
+    icon: string;
+  }>;
+  about: {
+    title: string;
+    paragraphs: string[];
+  };
+};
+
 export const site = {
   brand: 'Les Mains de Sérénité',
   subtitle: 'Massage bien-être à Annecy',
@@ -12,6 +38,7 @@ export const site = {
     title: 'Les Mains de Sérénité',
     description:
       'Offrez à votre corps un moment de détente profonde et de relâchement des tensions.',
+    location: 'Annecy et alentours, sur rendez-vous',
     primaryCta: 'Réserver un massage',
     secondaryCta: 'Appeler',
   },
@@ -49,4 +76,4 @@ export const site = {
       'L’objectif est simple : offrir un moment de calme et de soin dans un environnement accueillant et bienveillant.',
     ],
   },
-};
+} satisfies SiteData;

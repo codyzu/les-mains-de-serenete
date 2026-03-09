@@ -1,10 +1,8 @@
 ---
+import type {SiteData} from '../data/site';
 import SectionIntro from './SectionIntro.astro';
 
-interface Props {
-  title: string;
-  paragraphs: string[];
-}
+type Props = SiteData['about'];
 
 const {title, paragraphs} = Astro.props;
 ---

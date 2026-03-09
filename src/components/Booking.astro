@@ -1,9 +1,8 @@
 ---
+import type {SiteData} from '../data/site';
 import IconImage from './IconImage.astro';
 
-interface Props {
-  bookingUrl: string;
-}
+type Props = Pick<SiteData, 'bookingUrl'>;
 
 const {bookingUrl} = Astro.props;
 ---

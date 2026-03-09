@@ -1,7 +1,7 @@
 ---
-interface Props {
-  brand: string;
-}
+import type {SiteData} from '../data/site';
+
+type Props = Pick<SiteData, 'brand'>;
 
 const {brand} = Astro.props;
 ---

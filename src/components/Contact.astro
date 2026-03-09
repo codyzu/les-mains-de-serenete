@@ -1,13 +1,12 @@
 ---
+import type {SiteData} from '../data/site';
 import IconImage from './IconImage.astro';
 import SectionIntro from './SectionIntro.astro';
 
-interface Props {
-  phoneDisplay: string;
-  phoneHref: string;
-  email: string;
-  locationText: string;
-}
+type Props = Pick<
+  SiteData,
+  'phoneDisplay' | 'phoneHref' | 'email' | 'locationText'
+>;
 
 const {phoneDisplay, phoneHref, email, locationText} = Astro.props;
 ---

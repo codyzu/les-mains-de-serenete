@@ -1,16 +1,11 @@
 ---
+import type {SiteData} from '../data/site';
 import SectionIntro from './SectionIntro.astro';
 import IconImage from './IconImage.astro';
 
-interface Massage {
-  title: string;
-  description: string;
-  icon: string;
-}
-
-interface Props {
-  items: Massage[];
-}
+type Props = {
+  items: SiteData['massages'];
+};
 
 const {items} = Astro.props;
 ---
