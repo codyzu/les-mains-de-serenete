@@ -21,7 +21,7 @@ export type SiteData = {
   }>;
   about: {
     title: string;
-    paragraphs: string[];
+    body: string;
   };
 };
 
@@ -70,10 +70,12 @@ export const site = {
   ],
   about: {
     title: 'À propos',
-    paragraphs: [
-      'Derrière Les Mains de Sérénité se trouve une praticienne passionnée par le bien-être et l’écoute du corps.',
-      'Chaque séance est adaptée aux besoins de la personne afin d’apporter relaxation, relâchement des tensions et équilibre.',
-      'L’objectif est simple : offrir un moment de calme et de soin dans un environnement accueillant et bienveillant.',
-    ],
+    body: `
+Derrière Les Mains de Sérénité se trouve une praticienne passionnée par le bien-être et l’écoute du corps.
+
+Chaque séance est adaptée aux besoins de la personne afin d’apporter relaxation, relâchement des tensions et équilibre.
+
+L’objectif est simple : offrir un moment de calme et de soin dans un environnement accueillant et bienveillant.
+    `,
   },
 } satisfies SiteData;

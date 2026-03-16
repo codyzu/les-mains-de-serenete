@@ -6,7 +6,11 @@ import SectionIntro from './SectionIntro.astro';
 
 type Props = SiteData['about'];
 
-const {title, paragraphs} = Astro.props;
+const {title, body} = Astro.props;
+const paragraphs = body
+  .split(/\n\s*\n/)
+  .map((paragraph) => paragraph.trim())
+  .filter(Boolean);
 ---
 
 <section id="apropos" class="section-pad bg-surface-muted">
