@@ -51,20 +51,10 @@ const phoneHref = getPhoneHref(phone);
 
       <div class="mt-8 w-fit">
         <div class="flex flex-wrap gap-4">
-          <a
-            href={bookingUrl}
-            onclick="window.dispatchEvent(new CustomEvent('cf-analytics-event', {detail: {name: 'book_click'}}))"
-            target="_blank"
-            rel="noreferrer"
-            class="btn-primary"
-          >
+          <a href={bookingUrl} class="btn-primary">
             {primaryCta}
           </a>
-          <a
-            href={`tel:${phoneHref}`}
-            onclick="window.dispatchEvent(new CustomEvent('cf-analytics-event', {detail: {name: 'phone_click'}}))"
-            class="btn-secondary"
-          >
+          <a href={`tel:${phoneHref}`} class="btn-secondary">
             {secondaryCta}
           </a>
         </div>

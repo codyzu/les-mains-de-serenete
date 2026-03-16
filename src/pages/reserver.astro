@@ -1,0 +1,26 @@
+---
+import {site} from '../data/site';
+
+const redirectUrl = site.bookingUrl;
+---
+
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="refresh" content={`0;url=${redirectUrl}`} />
+    <meta name="robots" content="noindex" />
+    <link rel="canonical" href={redirectUrl} />
+    <title>Redirection...</title>
+  </head>
+  <body>
+    <p>
+      Redirection vers la reservation en ligne.
+      <a href={redirectUrl}>Continuer</a>
+    </p>
+
+    <script define:vars={{redirectUrl}}>
+      window.location.replace(redirectUrl);
+    </script>
+  </body>
+</html>

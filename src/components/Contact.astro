@@ -26,7 +26,6 @@ const phoneHref = getPhoneHref(phone);
         <h3 class="heading-md text-[1.6rem]">Téléphone</h3>
         <a
           href={`tel:${phoneHref}`}
-          onclick="window.dispatchEvent(new CustomEvent('cf-analytics-event', {detail: {name: 'phone_click'}}))"
           class="body-lg mt-4 inline-flex text-ink transition hover:text-brand-strong"
         >
           {phone}
@@ -41,7 +40,6 @@ const phoneHref = getPhoneHref(phone);
         <h3 class="heading-md text-[1.6rem]">Email</h3>
         <a
           href={`mailto:${email}`}
-          onclick="window.dispatchEvent(new CustomEvent('cf-analytics-event', {detail: {name: 'email_click'}}))"
           class="body-lg mt-4 inline-flex break-all text-ink transition hover:text-accent-strong"
         >
           {email}

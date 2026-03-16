@@ -10,10 +10,11 @@ import {site} from '../data/site';
 
 type HeroProps = ComponentProps<typeof Hero>;
 type ContactProps = ComponentProps<typeof Contact>;
+const bookingPath = '/reserver';
 
 const heroProps = {
   subtitle: site.subtitle,
-  bookingUrl: site.bookingUrl,
+  bookingUrl: bookingPath,
   phone: site.phone,
   ...site.hero,
 } satisfies HeroProps;
@@ -36,7 +37,7 @@ const contactProps = {
 
     <About {...site.about} />
 
-    <Booking bookingUrl={site.bookingUrl} />
+    <Booking bookingUrl={bookingPath} />
 
     <Contact {...contactProps} />
   </main>
