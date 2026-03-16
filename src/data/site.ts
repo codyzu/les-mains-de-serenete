@@ -70,28 +70,28 @@ export const site = {
   },
   massages: [
     {
-      title: 'Massage relaxant',
+      title: 'Massage anti-douleur',
       description:
-        'Massage complet du corps pour favoriser la détente et apaiser les tensions.',
-      icon: 'i-lucide-flower-2',
-    },
-    {
-      title: 'Massage thérapeutique',
-      description:
-        'Massage ciblé pour soulager les douleurs musculaires et améliorer la mobilité.',
-      icon: 'i-lucide-heart-pulse',
-    },
-    {
-      title: 'Massage dos & nuque',
-      description:
-        'Idéal pour les tensions liées au stress ou au travail sur écran.',
+        'Massage ciblé pour soulager les tensions musculaires et les douleurs du quotidien. Idéal pour le dos, les épaules et la nuque, il aide à retrouver confort et détente.',
       icon: 'i-lucide-activity',
     },
     {
-      title: 'Massage anti-douleur',
+      title: 'Drainage lymphatique',
       description:
-        'Un soin ciblé pour apaiser les zones sensibles, relâcher les tensions et retrouver plus de confort au quotidien.',
-      icon: 'i-lucide-shield-plus',
+        'Massage doux et rythmé qui stimule la circulation lymphatique. Il aide à réduire la rétention d’eau et procure une agréable sensation de légèreté.',
+      icon: 'i-lucide-droplets',
+    },
+    {
+      title: 'Massage remodelant',
+      description:
+        'Massage tonifiant qui aide à raffermir la peau et redessiner certaines zones du corps. Il stimule la circulation et améliore l’aspect de la silhouette.',
+      icon: 'i-lucide-scan',
+    },
+    {
+      title: 'Massage visage liftant',
+      description:
+        'Soin du visage relaxant qui stimule la circulation et tonifie la peau. Il aide à illuminer le teint et procure un effet liftant naturel.',
+      icon: 'i-lucide-sparkles',
     },
   ],
   about: {
