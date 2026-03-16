@@ -1,5 +1,5 @@
 ---
-import BaseLayout from '../layouts/Layout.astro';
+import Layout from '../layouts/Layout.astro';
 import {site} from '../data/site';
 import {getPhoneHref} from '../utils/phone';
 
@@ -7,7 +7,7 @@ const {legal} = site;
 const phoneHref = getPhoneHref(site.phone);
 ---
 
-<BaseLayout
+<Layout
   title={`Politique de confidentialité | ${site.brand}`}
   description={`Politique de confidentialité du site ${site.brand}.`}
 >
@@ -138,4 +138,4 @@ const phoneHref = getPhoneHref(site.phone);
       </div>
     </section>
   </main>
-</BaseLayout>
+</Layout>

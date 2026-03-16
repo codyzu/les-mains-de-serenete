@@ -1,26 +1,37 @@
 ---
+import BaseLayout from '../layouts/BaseLayout.astro';
 import {site} from '../data/site';
 
 const redirectUrl = site.bookingUrl;
+const redirectDelayMs = 600;
 ---
 
-<!doctype html>
-<html lang="fr">
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="refresh" content={`0;url=${redirectUrl}`} />
+<BaseLayout
+  title="Redirection..."
+  description="Redirection vers la reservation en ligne."
+>
+  <Fragment slot="head">
     <meta name="robots" content="noindex" />
     <link rel="canonical" href={redirectUrl} />
-    <title>Redirection...</title>
-  </head>
-  <body>
-    <p>
-      Redirection vers la reservation en ligne.
-      <a href={redirectUrl}>Continuer</a>
-    </p>
+  </Fragment>
+  <main class="min-h-screen bg-surface px-6 py-16 text-ink">
+    <div
+      class="mx-auto flex min-h-[60vh] max-w-xl flex-col items-center justify-center text-center"
+    >
+      <p class="text-sm uppercase tracking-[0.25em] text-ink-subtle">
+        Reservation
+      </p>
+      <h1 class="heading-lg mt-4">Redirection en cours...</h1>
+      <p class="body-base mt-4">
+        Vous allez etre redirige(e) vers la reservation en ligne.
+      </p>
+      <a href={redirectUrl} class="btn-primary mt-8"> Continuer maintenant </a>
+    </div>
+  </main>
 
-    <script define:vars={{redirectUrl}}>
+  <script define:vars={{redirectDelayMs, redirectUrl}}>
+    window.setTimeout(() => {
       window.location.replace(redirectUrl);
-    </script>
-  </body>
-</html>
+    }, redirectDelayMs);
+  </script>
+</BaseLayout>

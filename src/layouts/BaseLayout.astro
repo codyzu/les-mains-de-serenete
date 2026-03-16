@@ -1,0 +1,57 @@
+---
+import {getBaseUrl} from '../utils/url';
+
+interface Props {
+  title: string;
+  description?: string;
+  structuredData?: Record<string, unknown> | Array<Record<string, unknown>>;
+}
+
+const {title, description = '', structuredData} = Astro.props;
+const baseUrl = getBaseUrl();
+const structuredDataItems = structuredData
+  ? Array.isArray(structuredData)
+    ? structuredData
+    : [structuredData]
+  : [];
+---
+
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href={`${baseUrl}favicon.svg`} />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    {
+      structuredDataItems.map((item) => (
+        <script type="application/ld+json" set:html={JSON.stringify(item)} />
+      ))
+    }
+    <slot name="head" />
+  </head>
+  <body>
+    <slot />
+
+    <!-- Cloudflare Web Analytics -->
+    {
+      import.meta.env.PROD ? (
+        <script
+          defer
+          src="https://static.cloudflareinsights.com/beacon.min.js"
+          data-cf-beacon='{"token": "cac9cbcf27cb4fd1b8c1f96bc6e63852"}'
+        />
+      ) : null
+    }
+    <!-- End Cloudflare Web Analytics -->
+  </body>
+</html>
+
+<style>
+  html,
+  body {
+    --uno: 'm-0 w-full h-full';
+  }
+</style>

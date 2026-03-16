@@ -1,7 +1,7 @@
 ---
 import type {ComponentProps} from 'astro/types';
 import HeroMassageRoom from '../assets/hero-massage-room.png';
-import BaseLayout from '../layouts/Layout.astro';
+import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
 import Massages from '../components/Massages.astro';
 import About from '../components/About.astro';
@@ -42,7 +42,7 @@ const structuredData = {
 };
 ---
 
-<BaseLayout
+<Layout
   title={`${site.brand} | Massage bien-être à Annecy`}
   description="Massages bien-être à Annecy. Réservation en ligne."
   structuredData={structuredData}
@@ -58,4 +58,4 @@ const structuredData = {
 
     <Contact {...contactProps} />
   </main>
-</BaseLayout>
+</Layout>

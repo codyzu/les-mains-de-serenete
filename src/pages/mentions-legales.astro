@@ -1,11 +1,11 @@
 ---
-import BaseLayout from '../layouts/Layout.astro';
+import Layout from '../layouts/Layout.astro';
 import {site} from '../data/site';
 
 const {legal} = site;
 ---
 
-<BaseLayout
+<Layout
   title={`Mentions légales | ${site.brand}`}
   description={`Mentions légales du site ${site.brand}.`}
 >
@@ -95,4 +95,4 @@ const {legal} = site;
       </div>
     </section>
   </main>
-</BaseLayout>
+</Layout>

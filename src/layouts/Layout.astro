@@ -2,7 +2,7 @@
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import {site} from '../data/site';
-import {getBaseUrl} from '../utils/url';
+import BaseLayout from './BaseLayout.astro';
 
 interface Props {
   title: string;
@@ -11,7 +11,6 @@ interface Props {
 }
 
 const {title, description = '', structuredData} = Astro.props;
-const baseUrl = getBaseUrl();
 const structuredDataItems = structuredData
   ? Array.isArray(structuredData)
     ? structuredData
@@ -19,43 +18,12 @@ const structuredDataItems = structuredData
   : [];
 ---
 
-<!doctype html>
-<html lang="fr">
-  <head>
-    <meta charset="utf8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href={`${baseUrl}favicon.svg`} />
-    <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
-    <meta name="description" content={description} />
-    {
-      structuredDataItems.map((item) => (
-        <script type="application/ld+json" set:html={JSON.stringify(item)} />
-      ))
-    }
-  </head>
-  <body>
-    <Header brand={site.brand} />
-    <slot />
-    <Footer brand={site.brand} />
-
-    <!-- Cloudflare Web Analytics -->
-    {
-      import.meta.env.PROD ? (
-        <script
-          defer
-          src="https://static.cloudflareinsights.com/beacon.min.js"
-          data-cf-beacon='{"token": "cac9cbcf27cb4fd1b8c1f96bc6e63852"}'
-        />
-      ) : null
-    }
-    <!-- End Cloudflare Web Analytics -->
-  </body>
-</html>
-
-<style>
-  html,
-  body {
-    --uno: 'm-0 w-full h-full';
-  }
-</style>
+<BaseLayout
+  title={title}
+  description={description}
+  structuredData={structuredDataItems}
+>
+  <Header brand={site.brand} />
+  <slot />
+  <Footer brand={site.brand} />
+</BaseLayout>
