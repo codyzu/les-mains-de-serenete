@@ -7,6 +7,14 @@ import {
   transformerDirectives,
   transformerVariantGroup,
 } from 'unocss';
+import {createLocalFontProcessor} from '@unocss/preset-web-fonts/local';
+import {joinBasePath} from './config/base-path.mjs';
+
+const localFontProcessor = createLocalFontProcessor({
+  cacheDir: 'node_modules/.cache/unocss/fonts',
+  fontAssetsDir: 'public/assets/fonts',
+  fontServeBaseUrl: joinBasePath('/assets/fonts'),
+});
 
 export default defineConfig({
   presets: [
@@ -24,9 +32,10 @@ export default defineConfig({
     }),
     presetWebFonts({
       fonts: {
-        sans: 'Inter:400,600,700',
-        display: 'Playfair Display:400,700,900',
+        sans: 'Inter:400,500,700',
+        display: 'Playfair Display:400',
       },
+      processors: localFontProcessor,
     }),
   ],
   transformers: [transformerDirectives(), transformerVariantGroup()],
