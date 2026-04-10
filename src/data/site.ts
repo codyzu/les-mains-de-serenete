@@ -142,11 +142,13 @@ export const site = {
   about: {
     title: 'À propos',
     body: `
-Derrière Les Mains de Sérénité se trouve une praticienne passionnée par le bien-être et l’écoute du corps.
+Je suis praticienne en massage bien-être, avec une formation d’auxiliaire de puériculture, ce qui m’a permis de développer une approche attentive, douce et à l’écoute du corps.
 
-Chaque séance est adaptée aux besoins de la personne afin d’apporter relaxation, relâchement des tensions et équilibre.
+Je vous propose des massages à domicile à Annecy et ses alentours, exclusivement réservés aux femmes, afin de garantir un cadre de confiance, de confort et de sérénité.
 
-L’objectif est simple : offrir un moment de calme et de soin dans un environnement accueillant et bienveillant.
+Chaque séance est entièrement personnalisée, en fonction de vos besoins du moment, qu’il s’agisse de soulager des tensions, de relâcher le stress ou simplement de vous accorder un moment pour vous.
+
+Mon objectif est simple : vous offrir une parenthèse de bien-être, directement chez vous, dans un environnement calme, rassurant et bienveillant.
     `,
   },
 } satisfies SiteData;
