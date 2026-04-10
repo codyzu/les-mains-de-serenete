@@ -54,7 +54,7 @@ export type SiteData = {
 
 export const site = {
   brand: 'Les Mains de Sérénité',
-  subtitle: 'Massage bien-être à Annecy',
+  subtitle: 'Massage à domicile à Annecy',
   siteUrl: 'https://lesmainsdeserenite.fr',
   phone: '06 18 75 81 28',
   email: 'bonjour@lesmainsdeserenite.fr',
@@ -88,8 +88,8 @@ export const site = {
   hero: {
     title: 'Les Mains de Sérénité',
     description:
-      'Offrez à votre corps un moment de détente profonde et de relâchement des tensions.',
-    location: 'Annecy et alentours, sur rendez-vous',
+      'Massage à domicile à Annecy, exclusivement réservé aux femmes. Profitez d’un moment de détente profonde directement chez vous, dans un cadre bienveillant et sécurisé.',
+    location: 'Annecy et alentours · À domicile · Réservé aux femmes',
     primaryCta: 'Réserver un massage',
     secondaryCta: 'Appeler',
   },
