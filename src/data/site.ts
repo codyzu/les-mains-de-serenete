@@ -58,6 +58,14 @@ export type SiteData = {
       description: string;
     }>;
   };
+  testimonials: {
+    title: string;
+    intro: string;
+    items: Array<{
+      text: string;
+      author: string;
+    }>;
+  };
 };
 
 export const site = {
@@ -177,6 +185,24 @@ Mon objectif est simple : vous offrir une parenthèse de bien-être, directement
         title: 'Votre moment de détente',
         description:
           'Vous profitez d’une séance personnalisée, directement chez vous, dans un cadre calme et rassurant.',
+      },
+    ],
+  },
+  testimonials: {
+    title: 'Avis clientes',
+    intro: 'Celles qui ont testé en parlent le mieux.',
+    items: [
+      {
+        text: 'Un vrai moment de détente. Le fait de ne pas avoir à se déplacer change tout. Je recommande vivement.',
+        author: 'Marie, Annecy',
+      },
+      {
+        text: 'Très professionnelle, douce et à l’écoute. Je me suis sentie totalement en confiance.',
+        author: 'Sophie, Annecy',
+      },
+      {
+        text: 'Une parenthèse de bien-être à la maison, exactement ce dont j’avais besoin.',
+        author: 'Camille, Annecy',
       },
     ],
   },

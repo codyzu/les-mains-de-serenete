@@ -6,6 +6,7 @@ import Hero from '../components/Hero.astro';
 import Massages from '../components/Massages.astro';
 import About from '../components/About.astro';
 import SessionSteps from '../components/SessionSteps.astro';
+import Testimonials from '../components/Testimonials.astro';
 import Booking from '../components/Booking.astro';
 import Contact from '../components/Contact.astro';
 import {site} from '../data/site';
@@ -56,6 +57,8 @@ const structuredData = {
     <About {...site.about} />
 
     <SessionSteps {...site.sessionSteps} />
+
+    <Testimonials {...site.testimonials} />
 
     <Booking bookingUrl={bookingPath} />
 
