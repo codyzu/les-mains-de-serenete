@@ -50,6 +50,14 @@ export type SiteData = {
     title: string;
     body: string;
   };
+  sessionSteps: {
+    title: string;
+    intro: string;
+    steps: Array<{
+      title: string;
+      description: string;
+    }>;
+  };
 };
 
 export const site = {
@@ -150,5 +158,26 @@ Chaque séance est entièrement personnalisée, en fonction de vos besoins du mo
 
 Mon objectif est simple : vous offrir une parenthèse de bien-être, directement chez vous, dans un environnement calme, rassurant et bienveillant.
     `,
+  },
+  sessionSteps: {
+    title: 'Comment se déroule une séance ?',
+    intro: 'Un moment de bien-être chez vous, en toute simplicité.',
+    steps: [
+      {
+        title: 'Réservation',
+        description:
+          'Choisissez le créneau qui vous convient en ligne ou par téléphone.',
+      },
+      {
+        title: 'Déplacement à domicile',
+        description:
+          'Je me déplace chez vous à Annecy et alentours avec table de massage et matériel professionnel.',
+      },
+      {
+        title: 'Votre moment de détente',
+        description:
+          'Vous profitez d’une séance personnalisée, directement chez vous, dans un cadre calme et rassurant.',
+      },
+    ],
   },
 } satisfies SiteData;
