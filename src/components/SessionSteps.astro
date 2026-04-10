@@ -4,7 +4,7 @@ import SectionIntro from './SectionIntro.astro';
 
 type Props = SiteData['sessionSteps'];
 
-const {title, intro, steps} = Astro.props;
+const {title, intro, steps, reassuranceNote} = Astro.props;
 ---
 
 <section id="seance" class="section-pad bg-surface">
@@ -32,5 +32,11 @@ const {title, intro, steps} = Astro.props;
         ))
       }
     </div>
+
+    {
+      reassuranceNote && (
+        <p class="body-base mt-6 text-center text-ink/68">{reassuranceNote}</p>
+      )
+    }
   </div>
 </section>

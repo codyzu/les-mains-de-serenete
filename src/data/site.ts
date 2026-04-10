@@ -53,6 +53,7 @@ export type SiteData = {
   sessionSteps: {
     title: string;
     intro: string;
+    reassuranceNote?: string;
     steps: Array<{
       title: string;
       description: string;
@@ -170,6 +171,7 @@ Mon objectif est simple : vous offrir une parenthèse de bien-être, directement
   sessionSteps: {
     title: 'Comment se déroule une séance ?',
     intro: 'Un moment de bien-être chez vous, en toute simplicité.',
+    reassuranceNote: 'Aucun matériel n’est à prévoir de votre côté.',
     steps: [
       {
         title: 'Réservation',
@@ -193,15 +195,15 @@ Mon objectif est simple : vous offrir une parenthèse de bien-être, directement
     intro: 'Celles qui ont testé en parlent le mieux.',
     items: [
       {
-        text: 'Un vrai moment de détente. Le fait de ne pas avoir à se déplacer change tout. Je recommande vivement.',
+        text: 'Un vrai moment de détente. Le fait de ne pas avoir à me déplacer a tout changé pour moi. Je me suis sentie à l’aise du début à la fin.',
         author: 'Marie, Annecy',
       },
       {
-        text: 'Très professionnelle, douce et à l’écoute. Je me suis sentie totalement en confiance.',
+        text: 'Très douce, professionnelle et à l’écoute. J’ai particulièrement apprécié le confort de pouvoir profiter du massage chez moi.',
         author: 'Sophie, Annecy',
       },
       {
-        text: 'Une parenthèse de bien-être à la maison, exactement ce dont j’avais besoin.',
+        text: 'Je ne pensais pas pouvoir me détendre autant à la maison. Une expérience très agréable, dans un cadre simple et rassurant.',
         author: 'Camille, Annecy',
       },
     ],
