@@ -34,9 +34,9 @@ const {title, intro, steps, reassuranceNote} = Astro.props;
     </div>
 
     {
-      reassuranceNote && (
+      reassuranceNote ? (
         <p class="body-base mt-6 text-center text-ink/68">{reassuranceNote}</p>
-      )
+      ) : null
     }
   </div>
 </section>
