@@ -1,0 +1,25 @@
+{
+  "image": "mcr.microsoft.com/devcontainers/universal:2",
+  "postCreateCommand": "pnpm install",
+  "customizations": {
+    "vscode": {
+      "extenstions": [
+        "astro-build.astro-vscode",
+        "esbenp.prettier-vscode",
+        "samverschueren.vscode-xo"
+      ]
+    }
+  },
+  "features": {
+    "ghcr.io/devcontainers-extra/features/pnpm:2": {
+      "version": "10"
+    }
+  },
+  "forwardPorts": [4321],
+  "portsAttributes": {
+    "4321": {
+      "label": "Astro dev server",
+      "onAutoForward": "openPreview"
+    }
+  }
+}
