@@ -7,7 +7,7 @@
     "vscode": {
       "extensions": [
         "astro-build.astro-vscode",
-        "samverschueren.vscode-xo"
+        "samverschueren.linter-xo"
       ]
     }
   },
