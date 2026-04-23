@@ -138,7 +138,7 @@ export const site = {
     {
       title: 'Drainage lymphatique',
       description:
-        'Massage doux et rythmé qui stimule la circulation lymphatique. Idéal pour soulager les jambes lourdes, le ventre gonflé et la rétention d’eau, il procure une sensation immédiate de légèreté.',
+        'Drainage lymphatique avec des mouvements dynamiques et un rythme soutenu, basé sur la méthode Renata França. Idéal pour soulager les jambes lourdes, le ventre gonflé et la rétention d’eau, il procure une sensation immédiate de légèreté.',
       icon: 'i-lucide-droplets',
       prices: [
         {duration: '45 min', price: '70 €'},
