@@ -138,7 +138,7 @@ export const site = {
     {
       title: 'Drainage lymphatique',
       description:
-        'Drainage lymphatique avec des mouvements dynamiques et un rythme soutenu, basé sur la méthode Renata França. Idéal pour soulager les jambes lourdes, le ventre gonflé et la rétention d’eau, il procure une sensation immédiate de légèreté.',
+        'Drainage lymphatique dynamique selon la méthode Renata França. Idéal pour soulager les jambes lourdes, le ventre gonflé et la rétention d’eau, il procure une agréable sensation de légèreté.',
       icon: 'i-lucide-droplets',
       prices: [
         {duration: '45 min', price: '70 €'},
@@ -183,9 +183,11 @@ export const site = {
   about: {
     title: 'À propos',
     body: `
-Je suis praticienne en massage bien-être, avec une formation d’auxiliaire de puériculture, ce qui m’a permis de développer une approche attentive, douce et à l’écoute du corps.
+Je suis Zahara, praticienne en massage bien-être à Annecy, avec une formation d’auxiliaire de puériculture, ce qui m’a permis de développer une approche attentive, douce et à l’écoute du corps.
 
-Je vous propose des massages bien-être à Annecy et ses alentours, exclusivement réservés aux femmes, dans un cadre de confiance, de confort et de sérénité.
+Formée au drainage lymphatique selon la méthode Renata França, je propose des massages réservés aux femmes, pensés pour offrir un véritable moment de relâchement et de bien-être.
+
+Je vous propose des massages bien-être dans un cadre de confiance, de confort et de sérénité, où chaque séance invite à ralentir, à relâcher les tensions et à se reconnecter à ses sensations.
 
 Chaque séance est entièrement personnalisée, en fonction de vos besoins du moment, qu’il s’agisse de soulager des tensions, de relâcher le stress ou simplement de vous accorder un moment pour vous.
 
