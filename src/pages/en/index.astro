@@ -1,0 +1,13 @@
+---
+import {getLocalizedSite, site} from '../../data/site';
+import HomePageTemplate from '../../page-templates/HomePageTemplate.astro';
+
+const locale = 'en' as const;
+const localized = getLocalizedSite(locale);
+---
+
+<HomePageTemplate
+  locale={locale}
+  business={site.business}
+  localized={localized}
+/>

@@ -5,10 +5,22 @@ interface Props {
   title: string;
   description?: string;
   lang?: string;
+  canonicalUrl?: string;
+  alternates?: Array<{
+    hreflang: string;
+    href: string;
+  }>;
   structuredData?: Record<string, unknown> | Array<Record<string, unknown>>;
 }
 
-const {title, description = '', lang = 'fr', structuredData} = Astro.props;
+const {
+  title,
+  description = '',
+  lang = 'fr',
+  canonicalUrl,
+  alternates = [],
+  structuredData,
+} = Astro.props;
 const baseUrl = getBaseUrl();
 const structuredDataItems = structuredData
   ? Array.isArray(structuredData)
@@ -40,6 +52,16 @@ const structuredDataItems = structuredData
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <meta name="description" content={description} />
+    {canonicalUrl ? <link rel="canonical" href={canonicalUrl} /> : null}
+    {
+      alternates.map((alternate) => (
+        <link
+          rel="alternate"
+          hreflang={alternate.hreflang}
+          href={alternate.href}
+        />
+      ))
+    }
     {
       structuredDataItems.map((item) => (
         <script type="application/ld+json" set:html={JSON.stringify(item)} />

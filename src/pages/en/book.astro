@@ -1,0 +1,13 @@
+---
+import {getLocalizedSite, site} from '../../data/site';
+import ReserveRedirectPageTemplate from '../../page-templates/ReserveRedirectPageTemplate.astro';
+
+const locale = 'en' as const;
+const localized = getLocalizedSite(locale);
+---
+
+<ReserveRedirectPageTemplate
+  locale={locale}
+  business={site.business}
+  localized={localized}
+/>

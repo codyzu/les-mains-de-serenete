@@ -1,13 +1,22 @@
 ---
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
-import {defaultLocale, getLocalizedSite, type Locale} from '../data/site';
+import {
+  defaultLocale,
+  getLocalizedSite,
+  site,
+  type Locale,
+  type LocalePathMap,
+} from '../data/site';
 import BaseLayout from './BaseLayout.astro';
 
 interface Props {
   locale?: Locale;
   title: string;
   description?: string;
+  canonicalPath?: string;
+  alternatePaths?: LocalePathMap;
+  languageSwitchPaths?: LocalePathMap;
   structuredData?: Record<string, unknown> | Array<Record<string, unknown>>;
   reserveLink?: string;
   reserveActive?: boolean;
@@ -17,11 +26,24 @@ const {
   locale = defaultLocale,
   title,
   description = '',
+  canonicalPath,
+  alternatePaths,
+  languageSwitchPaths,
   structuredData,
   reserveLink,
   reserveActive = false,
 } = Astro.props;
 const localized = getLocalizedSite(locale);
+const toAbsoluteUrl = (path: string) =>
+  new URL(path, site.business.siteUrl).toString();
+const canonicalUrl = canonicalPath ? toAbsoluteUrl(canonicalPath) : undefined;
+const alternates = alternatePaths
+  ? [
+      {hreflang: 'fr', href: toAbsoluteUrl(alternatePaths.fr)},
+      {hreflang: 'en', href: toAbsoluteUrl(alternatePaths.en)},
+      {hreflang: 'x-default', href: toAbsoluteUrl(alternatePaths.fr)},
+    ]
+  : [];
 const structuredDataItems = structuredData
   ? Array.isArray(structuredData)
     ? structuredData
@@ -33,10 +55,13 @@ const structuredDataItems = structuredData
   lang={localized.lang}
   title={title}
   description={description}
+  canonicalUrl={canonicalUrl}
+  alternates={alternates}
   structuredData={structuredDataItems}
 >
   <Header
     locale={locale}
+    languageSwitchPaths={languageSwitchPaths}
     reserveLink={reserveLink}
     reserveActive={reserveActive}
   />

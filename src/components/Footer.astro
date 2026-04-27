@@ -14,7 +14,13 @@ const {
   reserveActive = false,
 } = Astro.props;
 const baseUrl = getBaseUrl();
-const bookingHref = reserveLink ?? `${baseUrl}#reservation`;
+const toHref = (path: string) =>
+  path.startsWith('http') ? path : `${baseUrl}${path.replace(/^\//, '')}`;
+const homePath = locale === 'en' ? '/en/' : '/';
+const homeHref = toHref(homePath);
+const bookingHref = reserveLink
+  ? toHref(reserveLink)
+  : `${homeHref}#reservation`;
 const {
   business: {name: brand},
   pages,
@@ -32,10 +38,10 @@ const {tagline, links, disclaimer} = footer;
     <div
       class="flex flex-wrap items-center justify-center gap-4 text-sm text-white/75"
     >
-      <a href={`${baseUrl}#massages`} class="no-underline hover:text-white">
+      <a href={`${homeHref}#massages`} class="no-underline hover:text-white">
         {links.massages}
       </a>
-      <a href={`${baseUrl}#apropos`} class="no-underline hover:text-white">
+      <a href={`${homeHref}#apropos`} class="no-underline hover:text-white">
         {links.about}
       </a>
       {
@@ -49,17 +55,17 @@ const {tagline, links, disclaimer} = footer;
           </a>
         )
       }
-      <a href={`${baseUrl}#contact`} class="no-underline hover:text-white">
+      <a href={`${homeHref}#contact`} class="no-underline hover:text-white">
         {links.contact}
       </a>
       <a
-        href={`${baseUrl}${pages.mentionsLegalesPath.replace(/^\//, '')}/`}
+        href={toHref(`${pages.mentionsLegalesPath}/`)}
         class="no-underline hover:text-white"
       >
         {links.legal}
       </a>
       <a
-        href={`${baseUrl}${pages.politiqueConfidentialitePath.replace(/^\//, '')}/`}
+        href={toHref(`${pages.politiqueConfidentialitePath}/`)}
         class="no-underline hover:text-white"
       >
         {links.privacy}

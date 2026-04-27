@@ -1,20 +1,34 @@
 ---
-import {defaultLocale, getLocalizedSite, site, type Locale} from '../data/site';
+import {
+  defaultLocale,
+  getLocalizedSite,
+  site,
+  type Locale,
+  type LocalePathMap,
+} from '../data/site';
 import {getBaseUrl} from '../utils/url';
 
 type Props = {
   locale?: Locale;
+  languageSwitchPaths?: LocalePathMap;
   reserveLink?: string;
   reserveActive?: boolean;
 };
 
 const {
   locale = defaultLocale,
+  languageSwitchPaths,
   reserveLink,
   reserveActive = false,
 } = Astro.props;
 const baseUrl = getBaseUrl();
-const bookingHref = reserveLink ?? `${baseUrl}#reservation`;
+const toHref = (path: string) =>
+  path.startsWith('http') ? path : `${baseUrl}${path.replace(/^\//, '')}`;
+const homePath = locale === 'en' ? '/en/' : '/';
+const homeHref = toHref(homePath);
+const bookingHref = reserveLink
+  ? toHref(reserveLink)
+  : `${homeHref}#reservation`;
 const brand = site.business.name;
 const {
   chrome: {header},
@@ -25,16 +39,18 @@ const {tagline, links} = header;
 <header
   class="sticky top-0 z-50 border-b border-surface-soft/80 bg-surface-muted/90 backdrop-blur-md"
 >
-  <div class="container-page flex items-center justify-between gap-6 py-4">
-    <a href={baseUrl} class="min-w-0 no-underline">
+  <div
+    class="container-page flex items-center justify-between gap-6 py-4 sm:gap-8"
+  >
+    <a href={homeHref} class="min-w-0 no-underline">
       <div class="font-display text-2xl text-ink sm:text-3xl">{brand}</div>
       <p class="mt-1 text-sm text-ink-subtle">{tagline}</p>
     </a>
 
     <nav class="hidden items-center gap-6 md:flex">
-      <a href={`${baseUrl}#accueil`} class="nav-link">{links.home}</a>
-      <a href={`${baseUrl}#massages`} class="nav-link">{links.massages}</a>
-      <a href={`${baseUrl}#apropos`} class="nav-link">{links.about}</a>
+      <a href={`${homeHref}#accueil`} class="nav-link">{links.home}</a>
+      <a href={`${homeHref}#massages`} class="nav-link">{links.massages}</a>
+      <a href={`${homeHref}#apropos`} class="nav-link">{links.about}</a>
       {
         reserveActive ? (
           <span aria-current="page" class="text-sm font-medium text-ink">
@@ -46,7 +62,34 @@ const {tagline, links} = header;
           </a>
         )
       }
-      <a href={`${baseUrl}#contact`} class="nav-link">{links.contact}</a>
+      <a href={`${homeHref}#contact`} class="nav-link">{links.contact}</a>
     </nav>
+    {
+      languageSwitchPaths ? (
+        <div class="flex items-center gap-2 text-xs font-medium uppercase tracking-[0.1em] text-ink-subtle">
+          <a
+            href={toHref(languageSwitchPaths.fr)}
+            aria-current={locale === 'fr' ? 'page' : undefined}
+            class:list={[
+              'no-underline transition',
+              locale === 'fr' ? 'text-ink' : 'hover:text-ink',
+            ]}
+          >
+            FR
+          </a>
+          <span>/</span>
+          <a
+            href={toHref(languageSwitchPaths.en)}
+            aria-current={locale === 'en' ? 'page' : undefined}
+            class:list={[
+              'no-underline transition',
+              locale === 'en' ? 'text-ink' : 'hover:text-ink',
+            ]}
+          >
+            EN
+          </a>
+        </div>
+      ) : null
+    }
   </div>
 </header>

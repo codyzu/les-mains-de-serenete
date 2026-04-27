@@ -5,4 +5,8 @@ import ReserveRedirectPageTemplate from '../page-templates/ReserveRedirectPageTe
 const localized = getLocalizedSite(defaultLocale);
 ---
 
-<ReserveRedirectPageTemplate business={site.business} localized={localized} />
+<ReserveRedirectPageTemplate
+  locale={defaultLocale}
+  business={site.business}
+  localized={localized}
+/>

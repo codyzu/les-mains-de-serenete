@@ -1,5 +1,6 @@
 // @unocss-include
 export type Locale = 'fr' | 'en';
+export type LocalePathMap = Record<Locale, string>;
 
 export type SiteBusinessData = {
   name: string;
@@ -239,7 +240,7 @@ export type SiteData = {
 
 export const defaultLocale: Locale = 'fr';
 
-export const site = {
+const siteBase = {
   business: {
     name: 'Les Mains de Sérénité',
     siteUrl: 'https://lesmainsdeserenite.fr',
@@ -562,6 +563,123 @@ Mon objectif est simple : vous offrir une parenthèse de bien-être dans un envi
   pages: {
     mentionsLegalesPath: '/mentions-legales',
     politiqueConfidentialitePath: '/politique-de-confidentialite',
+  },
+} satisfies Omit<SiteData, 'localized'> & {
+  localized: {
+    fr: LocalizedSiteData;
+  };
+};
+
+const frLocalized = siteBase.localized.fr;
+
+const enLocalized = {
+  ...frLocalized,
+  locale: 'en-US',
+  lang: 'en',
+  chrome: {
+    header: {
+      tagline: 'Wellness massage',
+      links: {
+        home: 'Home',
+        massages: 'Massages',
+        about: 'About',
+        reserve: 'Book',
+        contact: 'Contact',
+      },
+    },
+    footer: {
+      tagline: 'Wellness massage',
+      links: {
+        massages: 'Massages',
+        about: 'About',
+        reserve: 'Book',
+        contact: 'Contact',
+        legal: 'Legal notice',
+        privacy: 'Privacy policy',
+      },
+      disclaimer: 'Wellness massage with no therapeutic or medical purpose.',
+    },
+  },
+  pages: {
+    ...frLocalized.pages,
+    home: {
+      ...frLocalized.pages.home,
+      meta: {
+        title: 'Les Mains de Sérénité | Wellness massage in Annecy for women',
+        description:
+          'Wellness massage in Annecy for women, by appointment, in a calm and comfortable setting. Lymphatic drainage, pain-relief massage, body sculpting and facial massage.',
+      },
+      promo: frLocalized.pages.home.promo
+        ? {
+            ...frLocalized.pages.home.promo,
+            ctaText: 'Book a massage',
+            ctaLink: '/en/book',
+          }
+        : undefined,
+      booking: {
+        ...frLocalized.pages.home.booking,
+        bookingPath: '/en/book',
+        title: 'Book your massage',
+        description:
+          'Book your massage online and choose the time slot that suits you.',
+        note: 'Easy contact by phone or WhatsApp before booking',
+        ctaText: 'Book online',
+      },
+      contact: {
+        ...frLocalized.pages.home.contact,
+        title: 'Contact',
+        subtitle:
+          'A question, a specific request, or would you like to book directly by phone or WhatsApp?',
+        whatsappDescription: 'Quick reply for any question before booking.',
+        phoneDescription: 'To quickly discuss your booking.',
+        emailDescription:
+          'Ideal if you prefer to ask your question in writing.',
+        whatsappLabel: 'Message on WhatsApp',
+      },
+    },
+    reserve: {
+      ...frLocalized.pages.reserve,
+      meta: {
+        title: 'Redirecting...',
+        description: 'Redirect to online booking.',
+      },
+      redirect: {
+        ...frLocalized.pages.reserve.redirect,
+        title: 'Redirecting...',
+        kicker: 'Booking',
+        heading: 'Redirecting...',
+        description: 'You are being redirected to online booking.',
+        ctaText: 'Continue now',
+      },
+    },
+    reserveOnline: {
+      ...frLocalized.pages.reserveOnline,
+      meta: {
+        title: 'Book a massage in Annecy | Les Mains de Sérénité',
+        description:
+          'Book your wellness massage in Annecy. Women-only service, easy online booking, payment on site.',
+      },
+      reserveLink: '/en/book-online',
+      contact: {
+        ...frLocalized.pages.reserveOnline.contact,
+        title: 'A question before booking?',
+        subtitle:
+          'I reply quickly to help you choose the massage that suits you best.',
+        whatsappDescription: 'Quick reply for any question before booking.',
+        phoneDescription: 'To quickly discuss your booking.',
+        emailDescription:
+          'Ideal if you prefer to ask your question in writing.',
+        whatsappLabel: 'Message on WhatsApp',
+      },
+    },
+  },
+} satisfies LocalizedSiteData;
+
+export const site = {
+  ...siteBase,
+  localized: {
+    fr: frLocalized,
+    en: enLocalized,
   },
 } satisfies SiteData;
 

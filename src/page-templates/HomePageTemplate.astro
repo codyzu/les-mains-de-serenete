@@ -24,6 +24,10 @@ const {locale, business, localized} = Astro.props;
 const {
   pages: {home},
 } = localized;
+const localePaths = {
+  fr: '/',
+  en: '/en/',
+} as const;
 const {
   booking: {bookingPath},
   whatsapp: {generalHref: whatsappUrl},
@@ -46,6 +50,9 @@ const structuredData = {
 
 <Layout
   locale={locale}
+  canonicalPath={localePaths[locale]}
+  alternatePaths={localePaths}
+  languageSwitchPaths={localePaths}
   title={home.meta.title}
   description={home.meta.description}
   structuredData={structuredData}

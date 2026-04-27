@@ -1,32 +1,73 @@
 ---
-import type {LocalizedSiteData, SiteBusinessData} from '../data/site';
+import {
+  site,
+  type Locale,
+  type LocalizedSiteData,
+  type SiteBusinessData,
+} from '../data/site';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 interface Props {
+  locale: Locale;
   business: SiteBusinessData;
   localized: LocalizedSiteData;
 }
 
-const {business, localized}: Props = Astro.props;
+const {locale, business, localized}: Props = Astro.props;
 const {
   pages: {reserve},
 } = localized;
 const redirectUrl = business.bookingUrl;
+const localePaths = {
+  fr: '/reserver',
+  en: '/en/book',
+} as const;
+const toAbsoluteUrl = (path: string) =>
+  new URL(path, site.business.siteUrl).toString();
+const alternates = [
+  {hreflang: 'fr', href: toAbsoluteUrl(localePaths.fr)},
+  {hreflang: 'en', href: toAbsoluteUrl(localePaths.en)},
+  {hreflang: 'x-default', href: toAbsoluteUrl(localePaths.fr)},
+];
 ---
 
 <BaseLayout
   lang={localized.lang}
   title={reserve.meta.title}
   description={reserve.meta.description}
+  canonicalUrl={toAbsoluteUrl(localePaths[locale])}
+  alternates={alternates}
 >
-  <Fragment slot="head">
-    <meta name="robots" content="noindex" />
-    <link rel="canonical" href={redirectUrl} />
-  </Fragment>
+  <meta slot="head" name="robots" content="noindex" />
   <main class="min-h-screen bg-surface px-6 py-16 text-ink">
     <div
       class="mx-auto flex min-h-[60vh] max-w-xl flex-col items-center justify-center text-center"
     >
+      <p
+        class="mb-4 text-xs font-medium uppercase tracking-[0.1em] text-ink-subtle"
+      >
+        <a
+          href={localePaths.fr}
+          aria-current={locale === 'fr' ? 'page' : undefined}
+          class:list={[
+            'no-underline transition',
+            locale === 'fr' ? 'text-ink' : 'hover:text-ink',
+          ]}
+        >
+          FR
+        </a>
+        {' / '}
+        <a
+          href={localePaths.en}
+          aria-current={locale === 'en' ? 'page' : undefined}
+          class:list={[
+            'no-underline transition',
+            locale === 'en' ? 'text-ink' : 'hover:text-ink',
+          ]}
+        >
+          EN
+        </a>
+      </p>
       <p class="text-sm uppercase tracking-[0.25em] text-ink-subtle">
         {reserve.redirect.kicker}
       </p>

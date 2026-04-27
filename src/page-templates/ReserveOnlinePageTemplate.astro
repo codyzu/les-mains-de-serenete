@@ -14,12 +14,19 @@ const {locale, business, localized} = Astro.props;
 const {
   pages: {reserveOnline, home},
 } = localized;
+const localePaths = {
+  fr: '/reserver-en-ligne',
+  en: '/en/book-online',
+} as const;
 const whatsappUrl = home.whatsapp.generalHref;
 ---
 
 <Layout
   reserveActive
   locale={locale}
+  canonicalPath={localePaths[locale]}
+  alternatePaths={localePaths}
+  languageSwitchPaths={localePaths}
   title={reserveOnline.meta.title}
   description={reserveOnline.meta.description}
   reserveLink={reserveOnline.reserveLink}
