@@ -97,7 +97,7 @@ export const site = {
   whatsappUrl:
     'https://wa.me/33618758128?text=Bonjour%2C%20je%20souhaite%20des%20informations%20pour%20un%20massage',
   locationText:
-    'Massages bien-être à Annecy et alentours, à domicile ou sur place selon le rendez-vous.',
+    'Massages bien-être à Annecy, sur rendez-vous, dans un cadre calme et confortable.',
   address: {
     streetAddress: '27 avenue de la plaine',
     addressLocality: 'Annecy',
@@ -124,8 +124,7 @@ export const site = {
   },
   hero: {
     title: 'Les Mains de Sérénité',
-    description:
-      'Réservé aux femmes, dans un cadre bienveillant, apaisant et sécurisé, à domicile ou sur place.',
+    description: 'À Annecy, dans un cadre bienveillant, apaisant et sécurisé.',
     womenOnlyLabel: 'Réservé aux femmes',
     benefitHighlight: 'Idéal pour jambes lourdes et ventre gonflé',
     primaryCta: 'Réserver un massage',
@@ -222,7 +221,7 @@ Mon objectif est simple : vous offrir une parenthèse de bien-être dans un envi
       {
         title: 'Lieu du rendez-vous',
         description:
-          'La séance peut avoir lieu à votre domicile ou sur place, selon votre préférence, avec tout le matériel nécessaire.',
+          'La séance a lieu sur rendez-vous à Annecy, dans un cadre calme, confortable et propice à la détente, avec tout le matériel nécessaire.',
       },
       {
         title: 'Votre moment de détente',
@@ -236,15 +235,15 @@ Mon objectif est simple : vous offrir une parenthèse de bien-être dans un envi
     intro: 'Celles qui ont testé en parlent le mieux.',
     items: [
       {
-        text: 'Un vrai moment de détente. Le fait de ne pas avoir à me déplacer a tout changé pour moi. Je me suis sentie à l’aise du début à la fin.',
+        text: 'Un vrai moment de détente. Je me suis sentie à l’aise du début à la fin, dans un cadre très apaisant.',
         author: 'Marie, Annecy',
       },
       {
-        text: 'Très douce, professionnelle et à l’écoute. J’ai particulièrement apprécié le confort de pouvoir profiter du massage chez moi.',
+        text: 'Très douce, professionnelle et à l’écoute. Le cadre est confortable et on se sent rapidement en confiance.',
         author: 'Sophie, Annecy',
       },
       {
-        text: 'Je ne pensais pas pouvoir me détendre autant à la maison. Une expérience très agréable, dans un cadre simple et rassurant.',
+        text: 'Une expérience très agréable, dans un environnement simple et rassurant. Je recommande vivement.',
         author: 'Camille, Annecy',
       },
     ],

@@ -68,7 +68,9 @@ const phoneHref = getPhoneHref(phone);
       >
         {title}
       </h1>
-      <p class="mt-6 max-w-xl text-lg leading-8 text-white/90 sm:text-xl">
+      <p
+        class="mt-6 max-w-[28rem] text-pretty text-lg leading-8 text-white/90 sm:max-w-[30rem] sm:text-xl lg:max-w-[26ch]"
+      >
         {description}
       </p>
 
@@ -96,14 +98,14 @@ const phoneHref = getPhoneHref(phone);
           </a>
           <a
             href={whatsappUrl}
-            class="inline-flex min-h-[3rem] items-center justify-center gap-2.5 rounded-full border border-white/60 bg-white/12 px-6 py-3.5 text-sm font-medium text-white shadow-soft backdrop-blur-sm transition hover:bg-white/20 sm:min-h-0 sm:py-3"
+            class="inline-flex min-h-[3rem] items-center justify-center gap-2.5 rounded-full border border-white/28 bg-white/8 px-6 py-3.5 text-sm font-medium text-white/88 shadow-soft backdrop-blur-sm transition hover:border-white/40 hover:bg-white/14 hover:text-white sm:min-h-0 sm:py-3"
             target="_blank"
             rel="noreferrer"
           >
             <IconImage
               inline
               name="i-lucide-message-circle"
-              class="text-white/90"
+              class="text-white/84"
               iconClass="h-4 w-4"
             />
             {whatsappCta}
