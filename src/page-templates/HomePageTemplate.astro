@@ -12,7 +12,6 @@ import Booking from '../components/Booking.astro';
 import Contact from '../components/Contact.astro';
 import type {Locale, LocalizedSiteData, SiteBusinessData} from '../data/site';
 import Layout from '../layouts/Layout.astro';
-import {getPhoneHref} from '../utils/phone';
 
 interface Props {
   locale: Locale;
@@ -38,7 +37,7 @@ const structuredData = {
   '@type': business.seo.schemaType,
   name: business.name,
   image: new URL(HeroMassageRoom.src, business.siteUrl).toString(),
-  telephone: `+33${getPhoneHref(business.phone).replace(/^0/, '')}`,
+  telephone: business.phone,
   address: {
     '@type': 'PostalAddress',
     ...business.address,

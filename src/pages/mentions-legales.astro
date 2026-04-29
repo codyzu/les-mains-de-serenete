@@ -2,10 +2,12 @@
 import Layout from '../layouts/Layout.astro';
 import {defaultLocale, site} from '../data/site';
 import {formatAddress} from '../utils/address';
+import {formatPhoneDisplay} from '../utils/phone';
 
 const {business} = site;
 const {legal} = business;
 const legalAddress = formatAddress(business.address);
+const phoneDisplay = formatPhoneDisplay(business.phone);
 ---
 
 <Layout
@@ -36,7 +38,7 @@ const legalAddress = formatAddress(business.address);
               <p><strong>Nom commercial :</strong> {business.name}</p>
               <p><strong>Statut :</strong> {legal.legalStatus}</p>
               <p><strong>Adresse :</strong> {legalAddress}</p>
-              <p><strong>Téléphone :</strong> {business.phone}</p>
+              <p><strong>Téléphone :</strong> {phoneDisplay}</p>
               <p>
                 <strong>Email :</strong>
                 <a

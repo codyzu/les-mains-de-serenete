@@ -1,4 +1,6 @@
 // @unocss-include
+import {getWhatsappHref} from '../utils/phone';
+
 export type Locale = 'fr' | 'en';
 export type LocalePathMap = Record<Locale, string>;
 
@@ -246,10 +248,9 @@ export type SiteData = {
 
 export const defaultLocale: Locale = 'fr';
 
-const businessPhone = '07 66 61 20 17';
-const whatsappPhone = businessPhone.replaceAll(/\D/g, '').replace(/^0/, '33');
-const getWhatsappHref = (message: string) =>
-  `https://wa.me/${whatsappPhone}?text=${encodeURIComponent(message)}`;
+const businessPhone = '+33766612017';
+const getBusinessWhatsappHref = (message: string) =>
+  getWhatsappHref(businessPhone, message);
 
 const siteBase = {
   business: {
@@ -496,7 +497,7 @@ Mon objectif est simple : vous offrir une parenthèse de bien-être dans un envi
               'Massages bien-être à Annecy, sur rendez-vous, dans un cadre calme et confortable.',
           },
           whatsapp: {
-            generalHref: getWhatsappHref(
+            generalHref: getBusinessWhatsappHref(
               'Bonjour, je souhaite des informations pour un massage'
             ),
           },
@@ -575,7 +576,7 @@ Mon objectif est simple : vous offrir une parenthèse de bien-être dans un envi
             emailDescription:
               'Idéal si vous préférez poser votre question par écrit.',
             whatsappLabel: 'Écrire sur WhatsApp',
-            whatsappHref: getWhatsappHref(
+            whatsappHref: getBusinessWhatsappHref(
               "Bonjour, j'ai une question avant de réserver un massage."
             ),
           },
@@ -804,7 +805,7 @@ My goal is simple: to offer you a peaceful wellness break in a calm, reassuring,
           'Wellness massage in Annecy, by appointment, in a calm and comfortable setting.',
       },
       whatsapp: {
-        generalHref: getWhatsappHref(
+        generalHref: getBusinessWhatsappHref(
           'Hello, I would like more information about a massage.'
         ),
       },
@@ -821,6 +822,7 @@ My goal is simple: to offer you a peaceful wellness break in a calm, reassuring,
         heading: 'Redirecting...',
         description: 'You are being redirected to online booking.',
         ctaText: 'Continue now',
+        delayMs: 600,
       },
     },
     reserveOnline: {
@@ -879,7 +881,7 @@ My goal is simple: to offer you a peaceful wellness break in a calm, reassuring,
         phoneDescription: 'For a quick chat before booking.',
         emailDescription: 'Best if you prefer to ask your question in writing.',
         whatsappLabel: 'Message on WhatsApp',
-        whatsappHref: getWhatsappHref(
+        whatsappHref: getBusinessWhatsappHref(
           'Hello, I have a question before booking a massage.'
         ),
       },

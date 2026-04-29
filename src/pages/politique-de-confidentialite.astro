@@ -2,12 +2,13 @@
 import Layout from '../layouts/Layout.astro';
 import {defaultLocale, site} from '../data/site';
 import {formatAddress} from '../utils/address';
-import {getPhoneHref} from '../utils/phone';
+import {formatPhoneDisplay, getPhoneHref} from '../utils/phone';
 
 const {business} = site;
 const {legal} = business;
 const legalAddress = formatAddress(business.address);
 const phoneHref = getPhoneHref(business.phone);
+const phoneDisplay = formatPhoneDisplay(business.phone);
 ---
 
 <Layout
@@ -49,7 +50,7 @@ const phoneHref = getPhoneHref(business.phone);
                   href={`tel:${phoneHref}`}
                   class="text-ink transition hover:text-brand-strong"
                 >
-                  {business.phone}
+                  {phoneDisplay}
                 </a>
               </p>
             </div>
