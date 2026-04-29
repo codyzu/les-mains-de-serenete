@@ -247,7 +247,7 @@ export type SiteData = {
 export const defaultLocale: Locale = 'fr';
 
 const businessPhone = '07 66 61 20 17';
-const whatsappPhone = businessPhone.replace(/\D/g, '').replace(/^0/, '33');
+const whatsappPhone = businessPhone.replaceAll(/\D/g, '').replace(/^0/, '33');
 const getWhatsappHref = (message: string) =>
   `https://wa.me/${whatsappPhone}?text=${encodeURIComponent(message)}`;
 
