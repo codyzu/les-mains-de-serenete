@@ -246,11 +246,16 @@ export type SiteData = {
 
 export const defaultLocale: Locale = 'fr';
 
+const businessPhone = '07 66 61 20 17';
+const whatsappPhone = businessPhone.replace(/\D/g, '').replace(/^0/, '33');
+const getWhatsappHref = (message: string) =>
+  `https://wa.me/${whatsappPhone}?text=${encodeURIComponent(message)}`;
+
 const siteBase = {
   business: {
     name: 'Les Mains de Sérénité',
     siteUrl: 'https://lesmainsdeserenite.fr',
-    phone: '06 18 75 81 28',
+    phone: businessPhone,
     email: 'bonjour@lesmainsdeserenite.fr',
     bookingUrl: 'https://cal.eu/lesmainsdeserenite',
     address: {
@@ -491,8 +496,9 @@ Mon objectif est simple : vous offrir une parenthèse de bien-être dans un envi
               'Massages bien-être à Annecy, sur rendez-vous, dans un cadre calme et confortable.',
           },
           whatsapp: {
-            generalHref:
-              'https://wa.me/33618758128?text=Bonjour%2C%20je%20souhaite%20des%20informations%20pour%20un%20massage',
+            generalHref: getWhatsappHref(
+              'Bonjour, je souhaite des informations pour un massage'
+            ),
           },
         },
         reserve: {
@@ -569,8 +575,9 @@ Mon objectif est simple : vous offrir une parenthèse de bien-être dans un envi
             emailDescription:
               'Idéal si vous préférez poser votre question par écrit.',
             whatsappLabel: 'Écrire sur WhatsApp',
-            whatsappHref:
-              'https://wa.me/33618758128?text=Bonjour%2C%20j%27ai%20une%20question%20avant%20de%20r%C3%A9server%20un%20massage.',
+            whatsappHref: getWhatsappHref(
+              "Bonjour, j'ai une question avant de réserver un massage."
+            ),
           },
         },
       },
@@ -797,8 +804,9 @@ My goal is simple: to offer you a peaceful wellness break in a calm, reassuring,
           'Wellness massage in Annecy, by appointment, in a calm and comfortable setting.',
       },
       whatsapp: {
-        generalHref:
-          'https://wa.me/33618758128?text=Hello%2C%20I%20would%20like%20more%20information%20about%20a%20massage.',
+        generalHref: getWhatsappHref(
+          'Hello, I would like more information about a massage.'
+        ),
       },
     },
     reserve: {
@@ -871,8 +879,9 @@ My goal is simple: to offer you a peaceful wellness break in a calm, reassuring,
         phoneDescription: 'For a quick chat before booking.',
         emailDescription: 'Best if you prefer to ask your question in writing.',
         whatsappLabel: 'Message on WhatsApp',
-        whatsappHref:
-          'https://wa.me/33618758128?text=Hello%2C%20I%20have%20a%20question%20before%20booking%20a%20massage.',
+        whatsappHref: getWhatsappHref(
+          'Hello, I have a question before booking a massage.'
+        ),
       },
     },
   },
