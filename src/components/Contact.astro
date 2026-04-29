@@ -1,6 +1,6 @@
 ---
 import type {ContactBlockData} from '../data/site';
-import {getPhoneHref} from '../utils/phone';
+import {formatPhoneDisplay, getPhoneHref} from '../utils/phone';
 import IconImage from './IconImage.astro';
 import SectionIntro from './SectionIntro.astro';
 
@@ -29,6 +29,7 @@ const {
   whatsappHref,
 } = Astro.props;
 const phoneHref = getPhoneHref(phone);
+const phoneDisplay = formatPhoneDisplay(phone);
 const effectiveWhatsappHref = whatsappHref ?? whatsappUrl;
 const hasLocation = Boolean(locationText);
 ---
@@ -79,7 +80,7 @@ const hasLocation = Boolean(locationText);
           href={`tel:${phoneHref}`}
           class="body-lg mt-4 inline-flex text-ink transition hover:text-brand-strong"
         >
-          {phone}
+          {phoneDisplay}
         </a>
       </article>
 
